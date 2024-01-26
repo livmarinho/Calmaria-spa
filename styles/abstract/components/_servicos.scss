@@ -1,0 +1,39 @@
+@use '../variaveis';
+@use '../mixins';
+
+#servico {
+    background: var(--cor-gradiente-principal);
+    padding: 5rem 7.5rem;
+    .cards {
+        @include mixins.margem-central(80%);
+        display: flex;
+        gap: 1.5rem;
+        .card {
+            background: var(--cor-gradiente-card);
+            padding: 1rem 1.5rem;
+            text-align: center;
+            border: 1px solid var(--cor-branco);
+            border-radius: 2rem;
+            &-titulo {
+                @include mixins.ff-fs-cl(var(--fonte-secundaria), 1.625rem, var(--cor-preto));
+                font-weight: 400;
+            }
+            &-texto {
+                @include mixins.ff-fs-cl(var(--fonte-primaria), 1.325rem, var(--cor-preto));
+                font-weight: 400;
+
+            }
+        }
+        
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    .cards {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+}

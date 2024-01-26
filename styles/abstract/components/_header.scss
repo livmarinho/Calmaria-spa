@@ -1,0 +1,124 @@
+@use '../variaveis';
+@use '../mixins';
+
+header {
+    background: var(--cor-gradiente-principal);
+    padding: 2rem;
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.6rem;
+
+        .linha {
+            border-top: 1px solid var(--cor-preto);
+            width: 80%;
+        }
+
+        ul {
+            display: inline-flex;
+            gap: 2rem;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            @include mixins.ff-fs-cl(var(--fonte-primaria), 1rem, var(--cor-preto));
+            font-weight: 500;
+      
+        }
+    }
+
+    #home {
+        max-width: 1040px;
+        @include mixins.margem-central(80%);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        .textos-home {
+            max-width: 464px;
+
+            .textos-h1 {
+                font-family: "Krona One";
+                font-size: 2.625rem;
+                font-weight: 400;
+                color: var(--cor-preto);
+                margin-bottom: 2rem;
+                span {
+                    color: var(--cor-laranja);
+                }            
+            }
+
+        }
+    }
+    .img-home {
+        max-width: 474px;
+        img {
+            width: 100%;
+        }
+    }
+    .btn-main {
+        display: flex;
+        justify-content: center;
+        color: var(--cor-branco);
+        border-radius: 2.5rem;
+        border: 0;
+        background: transparent;
+        background-color: var(--cor-laranja);
+        padding: 1.5rem;
+        width: 17.5rem;
+        font-size: 1.375rem;
+        font-family: var(--fonte-primaria);
+        font-weight: 600;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+
+    nav img {
+        width: 10.75rem;
+
+        .linha {
+            width: 50%;
+        }
+        ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+#home {
+    max-width: 360px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .textos-home {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        .textos-h1 {
+            font-size: 1rem;
+        }
+    
+    }
+}
+
+.btn-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+

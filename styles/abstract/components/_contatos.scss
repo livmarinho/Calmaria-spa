@@ -1,0 +1,125 @@
+@use '../variaveis';
+@use '../mixins';
+
+#contatos {
+    @include mixins.margem-central(80%);
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 5rem 7.5rem;
+
+    .contatos-imgs {
+        max-width: 50%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        justify-content: space-around;
+
+        img {
+            width: 100%;
+
+            &:nth-child(n + 2) {
+                width: 48%;
+            }
+        }
+
+    }
+
+    .contatos-form {
+        max-width: 50%;
+        background: var(--cor-gradiente-laranja);
+        padding: 2rem 3rem;
+        border-radius: 3rem;
+
+        .titulo {
+            @include mixins.ff-fs-cl(var(--fonte-secundaria), 1.9375rem, var(--cor-laranja));
+            font-weight: 400;
+        }
+
+        .infos {
+            @include mixins.ff-fs-cl(var(--fonte-primaria), 1.375rem, var(--cor-preto));
+            font-weight: 400;
+        }
+
+        .inputs {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 2rem;
+            align-self: stretch;
+
+            input {
+                border-radius: 2rem;
+                padding: 1rem;
+                border: none;
+            }
+
+            .form-group {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: .5rem;
+
+                label {
+                    @extend .infos;
+                    font-weight: bold;
+                }
+
+                textarea {
+                    @extend input;
+                    height: 7.5rem;
+                    padding: 1rem;
+
+                }
+            }
+
+            .btn {
+                @extend input;
+                background: var(--cor-laranja);
+                margin-top: 2rem;
+                color: var(--cor-branco);
+                font-size: 1.375rem;
+                font-weight: 600;
+                width: 100%;
+                transition: .3s;
+
+                &:hover {
+                    background: #FFDBC9;
+                }
+
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #contatos {
+        width: 100%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+       align-items: center;
+
+       .contatos-imgs {
+        margin-top: 3rem;
+        max-width: 80%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        justify-content: center;
+
+        img {
+            width: 100%;
+
+            &:nth-child(n + 2) {
+                width: 48%;
+            }
+        }
+
+    }
+        
+    }
+}
